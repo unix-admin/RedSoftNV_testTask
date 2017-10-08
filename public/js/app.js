@@ -5,6 +5,11 @@
  * This js script submit message form on server
  */
 $(document).ready(function () {
+    function scrollOnLastMessage(){
+        var messageArea =  $("#messageArea");
+        messageArea.scrollTop(messageArea.prop("scrollHeight"));
+    }
+
     $('#newChatMessage').on('submit',function () {
         $.ajax({
             method: "POST",
@@ -12,8 +17,12 @@ $(document).ready(function () {
             data: $( this ).serialize(),
             success: function () {
                 $("#newChatMessage")[0].reset();
+                scrollOnLastMessage();
             }
         });
         return false;
-    })
+    });
+
+    scrollOnLastMessage();
+
 });

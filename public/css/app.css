@@ -1,0 +1,17 @@
+#messageArea {
+    width: 95vw;
+    height: 90vh;
+    overflow-y: scroll;
+    border: 1px solid
+}
+
+#message{
+    list-style-type: none;
+}
+#userName{
+    width: 10%;
+}
+
+#messageText{
+    width: 80%;
+}

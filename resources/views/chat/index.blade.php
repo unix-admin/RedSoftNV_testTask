@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Chat</title>
+        <link rel="stylesheet" type="text/css" href="/css/app.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
         <script
                 src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -14,8 +15,8 @@
     </head>
     <body>
         <div>
-            <div  style="width: 95vw; height: 90vh; overflow-y: scroll; border: 1px solid">
-             <ul id="message" style=" list-style-type: none;">
+            <div  id="messageArea">
+             <ul id="message">
             @foreach($messages as $message)
                     <li>{{$message->time}} {{$message->user}}: {{$message->message}} </li>
                 @endforeach
@@ -24,8 +25,8 @@
             <br>
             <form action="" id="newChatMessage">
                 {{csrf_field()}}
-            <input name="userName" id="userName" type="text" style="width: 10%" placeholder="input your name" required/>
-            <input name="messageText" id="messageText" type="text" style="width: 80%" placeholder="input your message" required />
+            <input name="userName" id="userName" type="text" placeholder="input your name" required/>
+            <input name="messageText" id="messageText" type="text" placeholder="input your message" required />
             <button type="submit">Send</button>
             </form>
         </div>
